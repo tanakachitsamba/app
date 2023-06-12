@@ -124,10 +124,6 @@ font-size: 32px;
 
 <main>
 
-
-
-
-
 <div class="container">
 <Box>
   <p>This App uses AI models which may produce inaccurate answers that could be unfactual or harmful. It is limited to only answer questions about gardening or related topics</p>
