@@ -30,11 +30,11 @@ async function sendRequest() {
       waitingOnResponse = false
     } else {
       waitingOnResponse = false
-      responseText = "Error: " + response.status;
+      responseText = "Error: " + response.status + " something two";
     }
   } catch (error) {
     waitingOnResponse = false
-    responseText = "Error: " + error.message;
+    responseText = "Error: " + error.message + " something one";
   }
 
   query = ""
