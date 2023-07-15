@@ -24,8 +24,6 @@ async function sendRequest() {
       body: JSON.stringify(payload),
     });
 
-    
-
     if (response.ok) {
       const data = await response.json();
       responseText = data.result;
@@ -35,6 +33,7 @@ async function sendRequest() {
       responseText = "Error: " + response.status;
     }
   } catch (error) {
+    waitingOnResponse = false
     responseText = "Error: " + error.message;
   }
 
