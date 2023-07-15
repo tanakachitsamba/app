@@ -14,8 +14,8 @@ async function sendRequest() {
   const url = "http://localhost:8080"; // Replace with your server URL
   const payload = { query }; 
 
-  waitingOnResponse = true 
   try {
+    waitingOnResponse = true 
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -31,6 +31,7 @@ async function sendRequest() {
       responseText = data.result;
       waitingOnResponse = false
     } else {
+      waitingOnResponse = false
       responseText = "Error: " + response.status;
     }
   } catch (error) {
