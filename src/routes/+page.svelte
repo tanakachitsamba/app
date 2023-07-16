@@ -119,6 +119,13 @@ font-size: 32px;
   margin: auto;
 }
 
+@media (max-width: 767px) {
+  /* Styles for screens up to 767px wide (typically mobile screens) */
+  .container {
+    width: 100%;
+  }
+}
+
 </style>
 
 
