@@ -10,7 +10,7 @@ let modelNum = 1;
 let a = 150;
 let b = 0.5;
 
-let ifOptions = true
+let ifOptions = false
 
 async function sendRequest() {
   q = query
