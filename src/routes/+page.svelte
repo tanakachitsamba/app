@@ -1,18 +1,25 @@
 <script>
-  import Box from './Box.svelte';
+import Box from './Box.svelte';
 
 let query = "";
 let waitingOnResponse = false;
 let responseText = "";
 let q = "";
+let modelNum = 1;
 
+let a = 150;
+let b = 0.5;
 
+let ifOptions = true
 
 async function sendRequest() {
   q = query
 
   const url = "http://165.22.120.128:8080"; // Replace with your server URL
-  const payload = { query }; 
+  const payload = { 
+    query, 
+    modelNum
+  }; 
 
   try {
     waitingOnResponse = true 
@@ -119,12 +126,25 @@ font-size: 32px;
   margin: auto;
 }
 
+.radios-container {
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start of the container */
+  justify-content: flex-end; /* Align items to the bottom of the container */
+}
+
+.pad {
+  padding-bottom: 10px;
+}
+
+
+
 @media (max-width: 767px) {
   /* Styles for screens up to 767px wide (typically mobile screens) */
   .container {
     width: 90%;
   }
 }
+
 
 </style>
 
@@ -137,14 +157,39 @@ font-size: 32px;
 </Box>
 
 
+
+
 <div class="features">Your gardening assistant</div>
 
 {#if !responseText}
   <h3>I answer all gardening questions</h3>
 
   <div class="input-container">
-    <textarea class="input" type="text" bind:value={query} on:input={query}></textarea>
-    <button class="button" on:click={sendRequest}>Send</button>
+    {#if ifOptions}
+    <div class="radios-container pad">
+      <div class="pad">Models</div>
+      <label>
+          <input type="radio" bind:group={modelNum} value={1} />gbt-3.5 (fast) 
+      </label>
+  
+      <label>
+          <input type="radio" bind:group={modelNum} value={2} />gbt-4 (slow but smarter)
+      </label>
+
+      <label>
+        <div>Maximum length</div>
+        <input type="number" bind:value={a} min="200" max="3000" />
+      </label>
+      
+      <label>
+        <div>Temperature</div>
+        <input type="number" bind:value={b} min="0.0" max="2.0" />
+      </label>
+  </div>
+  {/if}
+
+  <textarea class="input" type="text" bind:value={query} on:input={query}></textarea>
+  <button class="button" on:click={sendRequest}>Send</button>
   </div>
 {/if}
 
