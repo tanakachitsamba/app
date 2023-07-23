@@ -152,14 +152,10 @@ font-size: 32px;
 <main>
 
 <div class="container">
+<div class="features">Your gardening assistant</div>
 <Box>
   <p>This App uses AI models which may produce inaccurate answers that could be unfactual or harmful. It is limited to only answer questions about gardening or related topics</p>
 </Box>
-
-
-
-
-<div class="features">Your gardening assistant</div>
 
 {#if !responseText}
   <h3>I answer all gardening questions</h3>
