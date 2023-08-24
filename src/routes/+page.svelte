@@ -14,11 +14,9 @@
   
   async function sendRequest() {
     q = query
-  
     const url = "http://165.22.120.128:8080"; // Replace with your server URL
     const payload = { 
-      query, 
-      modelNum
+      query
     }; 
   
     try {
